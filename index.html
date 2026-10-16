@@ -28,7 +28,7 @@
                         semeq: {
                             900: '#0f172a',
                             800: '#1e293b',
-                            accent: '#2563eb',
+                            accent: '#2563eb', // Azul Royal
                             light: '#eff6ff',
                         }
                     }
@@ -47,22 +47,22 @@
     <div class="ambient-orb orb-2 fixed"></div>
 
     <!-- Cabeçalho Glassmorphism -->
-    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-slate-200/50 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-slate-200/70 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-semeq-accent to-blue-800 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
+            <div class="flex items-center gap-4">
+                <div class="w-11 h-11 bg-gradient-to-br from-semeq-accent to-blue-800 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/30 ring-2 ring-white">
                     S
                 </div>
                 <div>
                     <h1 class="text-xl font-bold text-semeq-900 tracking-tight">Painel SEMEQ</h1>
-                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Monitoramento Central</p>
+                    <p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Monitoramento Central</p>
                 </div>
             </div>
             
             <!-- Relógio Digital Dinâmico -->
             <div class="text-right hidden sm:block">
                 <div id="clock-time" class="text-lg font-bold text-semeq-900 font-mono tracking-tight">00:00:00</div>
-                <div id="clock-date" class="text-xs text-slate-500 font-medium capitalize">Carregando data...</div>
+                <div id="clock-date" class="text-[11px] text-slate-500 font-semibold uppercase tracking-wider mt-0.5">Carregando...</div>
             </div>
         </div>
     </header>
@@ -70,105 +70,110 @@
     <!-- Conteúdo Principal -->
     <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
         
-        <div class="mb-10">
-            <h2 class="text-3xl font-bold text-semeq-900 mb-2">Sistemas Integrados</h2>
-            <p class="text-slate-500">Acesse rapidamente as ferramentas de monitoramento e gestão da seção.</p>
+        <div class="mb-12">
+            <h2 class="text-3xl font-extrabold text-semeq-900 mb-3 tracking-tight">Sistemas Integrados</h2>
+            <p class="text-slate-500 text-lg max-w-2xl">Acesse rapidamente as ferramentas de monitoramento e gestão da seção de manutenção de equipamentos.</p>
         </div>
 
-        <!-- Grid de Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Grid de Cards: Alterado para 3 colunas perfeitamente alinhadas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- 1. Grafana -->
-            <a href="http://monitoramento.tre-ma.jus.br:3000/d/e31eb5c3-cc79-4640-a470-5d0be053c9ff/datacenter?orgId=4&from=now-15m&to=now&timezone=browser&var-Group=Nobreaks&var-Host=UPS01%20-%20DATACENTER&var-Host=UPS02%20-%20DATACENTER&refresh=10s" target="_blank" rel="noopener noreferrer" class="dashboard-card group bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 p-6 flex flex-col h-full relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-semeq-accent">
-                <div class="w-14 h-14 flex items-center justify-center mb-5 transition-all duration-300 relative z-10">
-                    <img src="img/grafana.png" alt="Logo Grafana" class="w-full h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <a href="http://monitoramento.tre-ma.jus.br:3000/d/e31eb5c3-cc79-4640-a470-5d0be053c9ff/datacenter?orgId=4&from=now-15m&to=now&timezone=browser&var-Group=Nobreaks&var-Host=UPS01%20-%20DATACENTER&var-Host=UPS02%20-%20DATACENTER&refresh=10s" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col h-full hover:border-semeq-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-semeq-accent scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-300 p-3.5 shadow-sm border border-slate-100">
+                    <img src="img/grafana.png" alt="Grafana" class="w-full h-full object-contain drop-shadow-sm">
                 </div>
-                <h3 class="text-lg font-bold text-semeq-900 mb-2 group-hover:text-semeq-accent transition-colors">Grafana</h3>
-                <p class="text-sm text-slate-500 flex-grow leading-relaxed">
-                    Monitoramento em tempo real de Carga e Bateria dos Nobreaks.
-                </p>
-                <div class="mt-4 flex items-center text-sm font-semibold text-semeq-accent opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
-                    Acessar painel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                <h3 class="text-xl font-bold text-semeq-900 mb-3 group-hover:text-semeq-accent transition-colors">Grafana</h3>
+                <p class="text-sm text-slate-500 flex-grow leading-relaxed mb-6">Monitoramento em tempo real de Carga e Bateria dos Nobreaks.</p>
+                <div class="mt-auto flex items-center text-sm font-bold text-semeq-accent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Acessar plataforma <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </div>
             </a>
 
             <!-- 2. Zabbix -->
-            <a href="https://monitoramento.tre-ma.jus.br/zabbix.php?name=&ip=&dns=&port=&status=-1&evaltype=0&tags%5B0%5D%5Btag%5D=&tags%5B0%5D%5Boperator%5D=0&tags%5B0%5D%5Bvalue%5D=&maintenance_status=1&filter_name=&filter_show_counter=0&filter_custom_time=0&sort=name&sortorder=ASC&show_suppressed=0&action=host.view" target="_blank" rel="noopener noreferrer" class="dashboard-card group bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 p-6 flex flex-col h-full relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-semeq-accent">
-                <div class="w-14 h-14 flex items-center justify-center mb-5 transition-all duration-300 relative z-10">
-                    <img src="img/zabbix.png" alt="Logo Zabbix" class="w-full h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <a href="https://monitoramento.tre-ma.jus.br/zabbix.php?name=&ip=&dns=&port=&status=-1&evaltype=0&tags%5B0%5D%5Btag%5D=&tags%5B0%5D%5Boperator%5D=0&tags%5B0%5D%5Bvalue%5D=&maintenance_status=1&filter_name=&filter_show_counter=0&filter_custom_time=0&sort=name&sortorder=ASC&show_suppressed=0&action=host.view" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col h-full hover:border-semeq-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-semeq-accent scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-300 p-3.5 shadow-sm border border-slate-100">
+                    <img src="img/zabbix.png" alt="Zabbix" class="w-full h-full object-contain drop-shadow-sm">
                 </div>
-                <h3 class="text-lg font-bold text-semeq-900 mb-2 group-hover:text-semeq-accent transition-colors">Zabbix</h3>
-                <p class="text-sm text-slate-500 flex-grow leading-relaxed">
-                    Visualização de Triggers e Alertas SNMP da rede de Nobreaks.
-                </p>
-                <div class="mt-4 flex items-center text-sm font-semibold text-semeq-accent opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
-                    Acessar painel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                <h3 class="text-xl font-bold text-semeq-900 mb-3 group-hover:text-semeq-accent transition-colors">Zabbix</h3>
+                <p class="text-sm text-slate-500 flex-grow leading-relaxed mb-6">Visualização de Triggers e Alertas SNMP da rede de Nobreaks.</p>
+                <div class="mt-auto flex items-center text-sm font-bold text-semeq-accent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Acessar plataforma <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </div>
             </a>
 
             <!-- 3. Automação Brises -->
-            <a href="https://automacao-brise-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="dashboard-card group bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 p-6 flex flex-col h-full relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-semeq-accent">
-                <div class="w-14 h-14 flex items-center justify-center mb-5 transition-all duration-300 relative z-10">
-                    <img src="img/brise.png" alt="Logo Automação Brises" class="w-full h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <a href="https://automacao-brise-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col h-full hover:border-semeq-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-semeq-accent scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-300 p-3.5 shadow-sm border border-slate-100">
+                    <img src="img/brises.png" alt="Automação Brises" class="w-full h-full object-contain drop-shadow-sm">
                 </div>
-                <h3 class="text-lg font-bold text-semeq-900 mb-2 group-hover:text-semeq-accent transition-colors">Automação Brises</h3>
-                <p class="text-sm text-slate-500 flex-grow leading-relaxed">
-                    Controle de Ar Condicionado e Climatização dos ambientes.
-                </p>
-                <div class="mt-4 flex items-center text-sm font-semibold text-semeq-accent opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
-                    Acessar painel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                <h3 class="text-xl font-bold text-semeq-900 mb-3 group-hover:text-semeq-accent transition-colors">Automação Brises</h3>
+                <p class="text-sm text-slate-500 flex-grow leading-relaxed mb-6">Controle de Ar Condicionado e Climatização dos ambientes.</p>
+                <div class="mt-auto flex items-center text-sm font-bold text-semeq-accent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Acessar plataforma <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </div>
             </a>
 
             <!-- 4. SIGEQ -->
-            <a href="https://guardiao.tre-ma.jus.br/sigeq/" target="_blank" rel="noopener noreferrer" class="dashboard-card group bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 p-6 flex flex-col h-full relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-semeq-accent">
-                <div class="w-14 h-14 flex items-center justify-center mb-5 transition-all duration-300 relative z-10">
-                    <img src="img/sigeq.png" alt="Logo SIGEQ" class="w-full h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <a href="https://guardiao.tre-ma.jus.br/sigeq/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col h-full hover:border-semeq-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-semeq-accent scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-300 p-3.5 shadow-sm border border-slate-100">
+                    <img src="img/sigeq.png" alt="SIGEQ" class="w-full h-full object-contain drop-shadow-sm">
                 </div>
-                <h3 class="text-lg font-bold text-semeq-900 mb-2 group-hover:text-semeq-accent transition-colors">SIGEQ</h3>
-                <p class="text-sm text-slate-500 flex-grow leading-relaxed">
-                    Sistema central para inventário e Gestão de Equipamentos.
-                </p>
-                <div class="mt-4 flex items-center text-sm font-semibold text-semeq-accent opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
-                    Acessar painel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                <h3 class="text-xl font-bold text-semeq-900 mb-3 group-hover:text-semeq-accent transition-colors">SIGEQ</h3>
+                <p class="text-sm text-slate-500 flex-grow leading-relaxed mb-6">Sistema central para inventário e Gestão de Equipamentos.</p>
+                <div class="mt-auto flex items-center text-sm font-bold text-semeq-accent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Acessar plataforma <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </div>
             </a>
 
             <!-- 5. GLPI -->
-            <a href="https://central.tre-ma.jus.br/front/ticket.php" target="_blank" rel="noopener noreferrer" class="dashboard-card group bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 p-6 flex flex-col h-full relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-semeq-accent">
-                <div class="w-14 h-14 flex items-center justify-center mb-5 transition-all duration-300 relative z-10">
-                    <img src="img/glpi.png" alt="Logo GLPI" class="w-full h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <a href="https://central.tre-ma.jus.br/front/ticket.php" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col h-full hover:border-semeq-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-semeq-accent scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-300 p-3.5 shadow-sm border border-slate-100">
+                    <img src="img/glpi.png" alt="GLPI" class="w-full h-full object-contain drop-shadow-sm">
                 </div>
-                <h3 class="text-lg font-bold text-semeq-900 mb-2 group-hover:text-semeq-accent transition-colors">GLPI</h3>
-                <p class="text-sm text-slate-500 flex-grow leading-relaxed">
-                    Plataforma para Abertura e Acompanhamento de Chamados técnicos.
-                </p>
-                <div class="mt-4 flex items-center text-sm font-semibold text-semeq-accent opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
-                    Acessar painel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                <h3 class="text-xl font-bold text-semeq-900 mb-3 group-hover:text-semeq-accent transition-colors">GLPI</h3>
+                <p class="text-sm text-slate-500 flex-grow leading-relaxed mb-6">Plataforma para Abertura e Acompanhamento de Chamados técnicos.</p>
+                <div class="mt-auto flex items-center text-sm font-bold text-semeq-accent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Acessar plataforma <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </div>
             </a>
 
-             <!-- 6. SEI -->
-            <a href="https://sei.tre-ma.jus.br/sei/controlador.php?acao=acompanhamento_listar&infra_item_menu=0&infra_sistema=100000100&infra_unidade_atual=110001064&infra_hash=cf1039b60902be999bb632306c4ade780c66c5b4208becef18c4cfd892d70618" target="_blank" rel="noopener noreferrer" class="dashboard-card group bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 p-6 flex flex-col h-full relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-semeq-accent xl:col-span-2">
-                <div class="w-14 h-14 flex items-center justify-center mb-5 transition-all duration-300 relative z-10">
-                    <img src="img/sei.png" alt="Logo SEI" class="w-full h-full object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <!-- 6. SEI -->
+            <a href="https://sei.tre-ma.jus.br/sei/controlador.php?acao=acompanhamento_listar&infra_item_menu=0&infra_sistema=100000100&infra_unidade_atual=110001064&infra_hash=cf1039b60902be999bb632306c4ade780c66c5b4208becef18c4cfd892d70618" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col h-full hover:border-semeq-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.12)] transition-all duration-300 relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-semeq-accent scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300"></div>
+                
+                <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-300 p-3.5 shadow-sm border border-slate-100">
+                    <img src="img/sei.png" alt="SEI" class="w-full h-full object-contain drop-shadow-sm">
                 </div>
-                <h3 class="text-lg font-bold text-semeq-900 mb-2 group-hover:text-semeq-accent transition-colors">SEI</h3>
-                <p class="text-sm text-slate-500 flex-grow leading-relaxed max-w-md">
-                    Sistema Eletrônico de Informações. Gestão de Processos oficiais, portarias e Acompanhamento de Contratos.
-                </p>
-                <div class="mt-4 flex items-center text-sm font-semibold text-semeq-accent opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
-                    Acessar painel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                <h3 class="text-xl font-bold text-semeq-900 mb-3 group-hover:text-semeq-accent transition-colors">SEI</h3>
+                <p class="text-sm text-slate-500 flex-grow leading-relaxed mb-6">Sistema Eletrônico de Informações. Gestão de Processos oficiais e Contratos.</p>
+                <div class="mt-auto flex items-center text-sm font-bold text-semeq-accent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    Acessar plataforma <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </div>
             </a>
 
         </div>
     </main>
 
-    <!-- Footer Simples -->
-    <footer class="border-t border-slate-200/50 bg-white/50 backdrop-blur-sm mt-auto">
-        <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-slate-500">
-            &copy; <span id="current-year"></span> SEMEQ - Tribunal Regional Eleitoral. Todos os direitos reservados.
+    <!-- Footer -->
+    <footer class="border-t border-slate-200/60 bg-slate-50 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500">
+            <div>
+                &copy; <span id="current-year"></span> SEMEQ - Tribunal Regional Eleitoral. Todos os direitos reservados.
+            </div>
+            <div class="mt-4 md:mt-0 font-medium">
+                Desenvolvido para Monitoramento e Controle Interno
+            </div>
         </div>
     </footer>
 
