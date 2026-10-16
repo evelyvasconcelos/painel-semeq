@@ -1,0 +1,67 @@
+body {
+    background-color: #f8fafc;
+    overflow-x: hidden;
+}
+
+/* Efeito de gradiente no fundo */
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    z-index: -1;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: #dbeafe; /* Azul claro */
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: #e0e7ff; /* Azul levemente puxado pro roxo */
+    bottom: -50px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 30px) scale(1.1); }
+}
+
+/* Efeito de barra lateral azul no card ao passar o mouse */
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #2563eb;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.dashboard-card:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.dashboard-card:hover {
+    border-color: #bfdbfe;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1), 0 8px 10px -6px rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
+}
+
+.dashboard-card {
+    transition: all 0.3s ease;
+}
